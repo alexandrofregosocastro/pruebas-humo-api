@@ -10,15 +10,15 @@ jobs:
 
     steps:
       - name: Clonar repositorio
-        [cite_start]uses: actions/checkout@v4 [cite: 263]
+        uses: actions/checkout@v4
 
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
-          [cite_start]node-version: '18' [cite: 265, 271]
+          node-version: '18'
 
       - name: Instalar Newman
-        [cite_start]run: npm install -g newman [cite: 273]
+        run: npm install -g newman
 
       - name: Ejecutar pruebas de humo
-        [cite_start]run: newman run pruebas_humo_api.json [cite: 274, 275]
+        run: newman run pruebas_humo_api.json
