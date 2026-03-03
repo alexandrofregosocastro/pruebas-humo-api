@@ -1,0 +1,24 @@
+name: Pruebas de Humo API
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        [cite_start]uses: actions/checkout@v4 [cite: 263]
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          [cite_start]node-version: '18' [cite: 265, 271]
+
+      - name: Instalar Newman
+        [cite_start]run: npm install -g newman [cite: 273]
+
+      - name: Ejecutar pruebas de humo
+        [cite_start]run: newman run pruebas_humo_api.json [cite: 274, 275]
