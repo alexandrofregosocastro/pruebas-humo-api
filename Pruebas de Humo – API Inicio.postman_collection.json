@@ -1,0 +1,67 @@
+{
+  "info": {
+    "_postman_id": "7b256326-d111-40e7-b781-ceb3ec2883ce",
+    "name": "Pruebas de Humo – API Inicio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52885082",
+    "_collection_link": "https://go.postman.co/collection/52885082-7b256326-d111-40e7-b781-ceb3ec2883ce?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Verificar que la respuesta sea 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Tiempo de respuesta es menor a 1000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El cuerpo de la respuesta no esta vací=io\", function () {\r",
+              "    pm.expect(pm.response.text()).to.be.ok;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El Content-Type es application/json\", function () {\r",
+              "    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://k51qryqov3.execute-api.ap-southeast-2.amazonaws.com/prod/makes/ckl2phsabijs71623vk0?modelsPage=1",
+          "protocol": "https",
+          "host": [
+            "k51qryqov3",
+            "execute-api",
+            "ap-southeast-2",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "prod",
+            "makes",
+            "ckl2phsabijs71623vk0"
+          ],
+          "query": [
+            {
+              "key": "modelsPage",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
